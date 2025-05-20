@@ -48,6 +48,8 @@ namespace TailwindWPF.Styling
                     case "rounded":
                         if (ctrl is RoundedButton rb)
                             rb.CornerRadius = new CornerRadius(8);
+                        else if (ctrl is IconButton ib)
+                            ib.CornerRadius = new CornerRadius(8);
                         break;
                 }
             }

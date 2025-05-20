@@ -8,7 +8,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <local:IconButton Content="Valider"
-                  tw:Class="bg-blue-500 text-white text-lg p-3 rounded" />
+        <local:IconButton 
+            Content="Valider"
+            tw:Tw.Class="bg-blue-500 text-white text-lg p-3 rounded"
+        />
     </Grid>
 </Window>

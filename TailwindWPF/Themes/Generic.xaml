@@ -7,15 +7,20 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:IconButton}">
-                    <StackPanel Orientation="Horizontal"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Margin="4">
-                        <Path Data="{TemplateBinding Icon}"
-                              Fill="{TemplateBinding Foreground}"
-                              Width="16" Height="16" Margin="0,0,6,0"/>
-                        <ContentPresenter VerticalAlignment="Center" />
-                    </StackPanel>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Margin="4">
+                            <Path Data="{TemplateBinding Icon}"
+                                  Fill="{TemplateBinding Foreground}"
+                                  Width="16" Height="16" Margin="0,0,6,0"/>
+                            <ContentPresenter VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
