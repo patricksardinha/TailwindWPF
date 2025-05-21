@@ -20,5 +20,10 @@ namespace TailwindWPF.Demo
         {
             InitializeComponent();
         }
+
+        private void MyButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Clicked !");
+        }
     }
 }
