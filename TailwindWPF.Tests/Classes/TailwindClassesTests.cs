@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using TailwindWPF.Styling;
 using Xunit;
+
+using TailwindWPF.Styling;
+using TailwindWPF.Tests.Helpers;
 
 namespace TailwindWPF.Tests.Classes
 {
@@ -10,11 +12,14 @@ namespace TailwindWPF.Tests.Classes
         [Fact]
         public void Can_Apply_Class_To_Button()
         {
-            var btn = new Button();
+            var actualPadding = HelperSTA.RunInSta(() =>
+            {
+                var btn = new Button();
+                Tw.SetClass(btn, "p-2");
+                return btn.Padding;
+            });
 
-            Tw.SetClass(btn, "p-2");
-
-            Assert.Equal(new Thickness(8), btn.Padding);
+            Assert.Equal(new Thickness(8), actualPadding);
         }
 
         [Fact]
