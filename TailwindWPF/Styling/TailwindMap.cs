@@ -18,7 +18,9 @@ namespace TailwindWPF.Styling
             new SpacingStyles(),
             new BorderStyles(),
             new LayoutStyles(),
-            new ButtonStyles()
+            new ButtonStyles(),
+            new AnimationStyles(),
+            new HoverStyles(),
         };
 
         static TailwindMap()
