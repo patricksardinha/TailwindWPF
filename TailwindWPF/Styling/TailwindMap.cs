@@ -10,13 +10,41 @@ namespace TailwindWPF.Styling
     {
         public static readonly Dictionary<string, Action<Control>> ClassMap = new();
 
+        private static readonly List<IStyleProvider> StyleProviders = new()
+        {
+            new BackgroundStyles(),
+            new TextStyles(),
+            new SpacingStyles(),
+            new BorderStyles(),
+            new LayoutStyles(),
+            new ButtonStyles()
+        };
+
         static TailwindMap()
         {
-            // Merge all dictionnaries
-            foreach (var kv in CommonStyles.Map)
-                ClassMap[kv.Key] = kv.Value;
-            foreach (var kv in ButtonStyles.Map)
-                ClassMap[kv.Key] = kv.Value;
-        }        
+            foreach (var provider in StyleProviders)
+            {
+                foreach (var style in provider.GetStyles())
+                {
+                    ClassMap[style.Key] = style.Value;
+                }
+            }
+        }
+
+        public static void RegisterCustomStyles(Dictionary<string, Action<Control>> customStyles)
+        {
+            foreach (var style in customStyles)
+            {
+                ClassMap[style.Key] = style.Value;
+            }
+        }
+
+        public static void RegisterStyleProvider(IStyleProvider provider)
+        {
+            foreach (var style in provider.GetStyles())
+            {
+                ClassMap[style.Key] = style.Value;
+            }
+        }
     }
 }

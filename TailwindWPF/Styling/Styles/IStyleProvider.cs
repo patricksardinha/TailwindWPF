@@ -7,9 +7,8 @@ using System.Windows.Controls;
 
 namespace TailwindWPF.Styling.Styles
 {
-    public class ButtonStyles : BaseStyleProvider
+    public interface IStyleProvider
     {
-        public override Dictionary<string, Action<Control>> GetStyles() => new()
-        { };
+        Dictionary<string, Action<Control>> GetStyles();
     }
 }

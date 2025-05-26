@@ -10,11 +10,7 @@ namespace TailwindWPF.Styling
     public static class CornerRadiusHelper
     {
         public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.RegisterAttached(
-                "CornerRadius",
-                typeof(CornerRadius),
-                typeof(CornerRadiusHelper),
-                new FrameworkPropertyMetadata(new CornerRadius(0), FrameworkPropertyMetadataOptions.Inherits));
+            DependencyProperty.RegisterAttached("CornerRadius", typeof(CornerRadius), typeof(CornerRadiusHelper), new FrameworkPropertyMetadata(new CornerRadius(0), FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetCornerRadius(DependencyObject element, CornerRadius value) =>
             element.SetValue(CornerRadiusProperty, value);
