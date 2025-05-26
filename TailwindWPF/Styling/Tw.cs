@@ -19,14 +19,14 @@ namespace TailwindWPF.Styling
 
         private static void OnClassChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is not Control ctrl || e.NewValue is not string classString)
+            if (e.NewValue is not string classString)
                 return;
 
             foreach (var cls in classString.Split(' ', StringSplitOptions.RemoveEmptyEntries))
             {
                 if (TailwindMap.ClassMap.TryGetValue(cls, out var action))
                 {
-                    action(ctrl);
+                    action(d);
                 }
             }
         }

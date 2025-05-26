@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 using TailwindWPF.Styling.Styles;
@@ -8,7 +9,7 @@ namespace TailwindWPF.Styling
 {
     public static class TailwindMap
     {
-        public static readonly Dictionary<string, Action<Control>> ClassMap = new();
+        public static readonly Dictionary<string, Action<DependencyObject>> ClassMap = new();
 
         private static readonly List<IStyleProvider> StyleProviders = new()
         {
@@ -31,7 +32,7 @@ namespace TailwindWPF.Styling
             }
         }
 
-        public static void RegisterCustomStyles(Dictionary<string, Action<Control>> customStyles)
+        public static void RegisterCustomStyles(Dictionary<string, Action<DependencyObject>> customStyles)
         {
             foreach (var style in customStyles)
             {

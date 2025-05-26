@@ -11,37 +11,56 @@ namespace TailwindWPF.Styling.Styles
 {
     public class BorderStyles : BaseStyleProvider
     {
-        public override Dictionary<string, Action<Control>> GetStyles() => new()
+        public override Dictionary<string, Action<DependencyObject>> GetStyles() => new()
         {
             // Border Width
-            ["border-0"] = c => c.BorderThickness = new Thickness(0),
-            ["border"] = c => c.BorderThickness = new Thickness(1),
-            ["border-2"] = c => c.BorderThickness = new Thickness(2),
-            ["border-4"] = c => c.BorderThickness = new Thickness(4),
-            ["border-8"] = c => c.BorderThickness = new Thickness(8),
+            ["border-0"] = d => SetThickness(d, 0),
+            ["border"] = d => SetThickness(d, 1),
+            ["border-2"] = d => SetThickness(d, 2),
+            ["border-4"] = d => SetThickness(d, 4),
+            ["border-8"] = d => SetThickness(d, 8),
 
             // Border Colors
-            ["border-transparent"] = c => c.BorderBrush = Brushes.Transparent,
-            ["border-current"] = c => c.BorderBrush = c.Foreground,
-            ["border-black"] = c => c.BorderBrush = Brushes.Black,
-            ["border-white"] = c => c.BorderBrush = Brushes.White,
-            ["border-gray-50"] = c => c.BorderBrush = CreateBrush("#F9FAFB"),
-            ["border-gray-100"] = c => c.BorderBrush = CreateBrush("#F3F4F6"),
-            ["border-gray-200"] = c => c.BorderBrush = CreateBrush("#E5E7EB"),
-            ["border-gray-300"] = c => c.BorderBrush = CreateBrush("#D1D5DB"),
-            ["border-gray-400"] = c => c.BorderBrush = CreateBrush("#9CA3AF"),
-            ["border-gray-500"] = c => c.BorderBrush = CreateBrush("#6B7280"),
+            ["border-transparent"] = SetBorderBrush(Brushes.Transparent),
+            ["border-current"] = d =>
+            {
+                if (d is Control c) c.BorderBrush = c.Foreground;
+                else if (d is Border b) b.BorderBrush = Brushes.Black;
+            },
+            ["border-black"] = SetBorderBrush(Brushes.Black),
+            ["border-white"] = SetBorderBrush(Brushes.White),
+            ["border-gray-50"] = SetBorderBrush(CreateBrush("#F9FAFB")),
+            ["border-gray-100"] = SetBorderBrush(CreateBrush("#F3F4F6")),
+            ["border-gray-200"] = SetBorderBrush(CreateBrush("#E5E7EB")),
+            ["border-gray-300"] = SetBorderBrush(CreateBrush("#D1D5DB")),
+            ["border-gray-400"] = SetBorderBrush(CreateBrush("#9CA3AF")),
+            ["border-gray-500"] = SetBorderBrush(CreateBrush("#6B7280")),
 
             // Rounded corners
-            ["rounded-none"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(0)),
-            ["rounded-sm"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(2)),
-            ["rounded"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(4)),
-            ["rounded-md"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(6)),
-            ["rounded-lg"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(8)),
-            ["rounded-xl"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(12)),
-            ["rounded-2xl"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(16)),
-            ["rounded-3xl"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(24)),
-            ["rounded-full"] = c => CornerRadiusHelper.SetCornerRadius(c, new CornerRadius(9999)),
+            ["rounded-none"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(0)),
+            ["rounded-sm"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(2)),
+            ["rounded"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(4)),
+            ["rounded-md"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(6)),
+            ["rounded-lg"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(8)),
+            ["rounded-xl"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(12)),
+            ["rounded-2xl"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(16)),
+            ["rounded-3xl"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(24)),
+            ["rounded-full"] = d => CornerRadiusHelper.SetCornerRadius(d, new CornerRadius(9999)),
         };
+
+        private static void SetThickness(DependencyObject d, double value)
+        {
+            var thickness = new Thickness(value);
+            if (d is Control c) c.BorderThickness = thickness;
+            else if (d is Border b) b.BorderThickness = thickness;
+        }
+
+        private static Action<DependencyObject> SetBorderBrush(Brush brush) =>
+            d =>
+            {
+                if (d is Control c) c.BorderBrush = brush;
+                else if (d is Border b) b.BorderBrush = brush;
+            };
     }
+
 }

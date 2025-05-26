@@ -4,6 +4,7 @@ using Xunit;
 
 using TailwindWPF.Styling;
 using TailwindWPF.Tests.Helpers;
+using System.Windows.Documents;
 
 namespace TailwindWPF.Tests.Classes
 {
@@ -20,6 +21,20 @@ namespace TailwindWPF.Tests.Classes
             });
 
             Assert.Equal(new Thickness(8), actualPadding);
+        }
+
+        [Fact]
+        public void Can_Apply_Class_To_TextBlock()
+        {
+            var actualFont = HelperSTA.RunInSta(() =>
+            {
+                var textBlock = new TextBlock();
+                Tw.SetClass(textBlock, "font-bold");
+                return textBlock.FontWeight;
+            });
+
+
+            Assert.Equal(FontWeights.Bold, actualFont);
         }
 
         [Fact]

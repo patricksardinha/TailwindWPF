@@ -11,63 +11,61 @@ namespace TailwindWPF.Styling.Styles
 {
     public class TextStyles : BaseStyleProvider
     {
-        public override Dictionary<string, Action<Control>> GetStyles() => new()
+        public override Dictionary<string, Action<DependencyObject>> GetStyles() => new()
         {
             // Text Colors
-            ["text-gray-50"] = c => c.Foreground = CreateBrush("#F9FAFB"),
-            ["text-gray-100"] = c => c.Foreground = CreateBrush("#F3F4F6"),
-            ["text-gray-200"] = c => c.Foreground = CreateBrush("#E5E7EB"),
-            ["text-gray-300"] = c => c.Foreground = CreateBrush("#D1D5DB"),
-            ["text-gray-400"] = c => c.Foreground = CreateBrush("#9CA3AF"),
-            ["text-gray-500"] = c => c.Foreground = CreateBrush("#6B7280"),
-            ["text-gray-600"] = c => c.Foreground = CreateBrush("#4B5563"),
-            ["text-gray-700"] = c => c.Foreground = CreateBrush("#374151"),
-            ["text-gray-800"] = c => c.Foreground = CreateBrush("#1F2937"),
-            ["text-gray-900"] = c => c.Foreground = CreateBrush("#111827"),
-            ["text-white"] = c => c.Foreground = Brushes.White,
-            ["text-black"] = c => c.Foreground = Brushes.Black,
+            ["text-gray-50"] = e => SetForeground(e, "#F9FAFB"),
+            ["text-gray-100"] = e => SetForeground(e, "#F3F4F6"),
+            ["text-gray-200"] = e => SetForeground(e, "#E5E7EB"),
+            ["text-gray-300"] = e => SetForeground(e, "#D1D5DB"),
+            ["text-gray-400"] = e => SetForeground(e, "#9CA3AF"),
+            ["text-gray-500"] = e => SetForeground(e, "#6B7280"),
+            ["text-gray-600"] = e => SetForeground(e, "#4B5563"),
+            ["text-gray-700"] = e => SetForeground(e, "#374151"),
+            ["text-gray-800"] = e => SetForeground(e, "#1F2937"),
+            ["text-gray-900"] = e => SetForeground(e, "#111827"),
+            ["text-white"] = e => SetForeground(e, Brushes.White),
+            ["text-black"] = e => SetForeground(e, Brushes.Black),
 
-            // Font Sizes (basé sur rem -> px conversion)
-            ["text-xs"] = c => c.FontSize = 12,
-            ["text-sm"] = c => c.FontSize = 14,
-            ["text-base"] = c => c.FontSize = 16,
-            ["text-lg"] = c => c.FontSize = 18,
-            ["text-xl"] = c => c.FontSize = 20,
-            ["text-2xl"] = c => c.FontSize = 24,
-            ["text-3xl"] = c => c.FontSize = 30,
-            ["text-4xl"] = c => c.FontSize = 36,
-            ["text-5xl"] = c => c.FontSize = 48,
-            ["text-6xl"] = c => c.FontSize = 60,
-            ["text-7xl"] = c => c.FontSize = 72,
-            ["text-8xl"] = c => c.FontSize = 96,
-            ["text-9xl"] = c => c.FontSize = 128,
+            // Font Sizes
+            ["text-xs"] = e => SetFontSize(e, 12),
+            ["text-sm"] = e => SetFontSize(e, 14),
+            ["text-base"] = e => SetFontSize(e, 16),
+            ["text-lg"] = e => SetFontSize(e, 18),
+            ["text-xl"] = e => SetFontSize(e, 20),
+            ["text-2xl"] = e => SetFontSize(e, 24),
+            ["text-3xl"] = e => SetFontSize(e, 30),
+            ["text-4xl"] = e => SetFontSize(e, 36),
+            ["text-5xl"] = e => SetFontSize(e, 48),
+            ["text-6xl"] = e => SetFontSize(e, 60),
+            ["text-7xl"] = e => SetFontSize(e, 72),
+            ["text-8xl"] = e => SetFontSize(e, 96),
+            ["text-9xl"] = e => SetFontSize(e, 128),
 
             // Font Weight
-            ["font-thin"] = c => c.FontWeight = FontWeights.Thin,
-            ["font-extralight"] = c => c.FontWeight = FontWeights.ExtraLight,
-            ["font-light"] = c => c.FontWeight = FontWeights.Light,
-            ["font-normal"] = c => c.FontWeight = FontWeights.Normal,
-            ["font-medium"] = c => c.FontWeight = FontWeights.Medium,
-            ["font-semibold"] = c => c.FontWeight = FontWeights.SemiBold,
-            ["font-bold"] = c => c.FontWeight = FontWeights.Bold,
-            ["font-extrabold"] = c => c.FontWeight = FontWeights.ExtraBold,
-            ["font-black"] = c => c.FontWeight = FontWeights.Black,
+            ["font-thin"] = e => SetFontWeight(e, FontWeights.Thin),
+            ["font-extralight"] = e => SetFontWeight(e, FontWeights.ExtraLight),
+            ["font-light"] = e => SetFontWeight(e, FontWeights.Light),
+            ["font-normal"] = e => SetFontWeight(e, FontWeights.Normal),
+            ["font-medium"] = e => SetFontWeight(e, FontWeights.Medium),
+            ["font-semibold"] = e => SetFontWeight(e, FontWeights.SemiBold),
+            ["font-bold"] = e => SetFontWeight(e, FontWeights.Bold),
+            ["font-extrabold"] = e => SetFontWeight(e, FontWeights.ExtraBold),
+            ["font-black"] = e => SetFontWeight(e, FontWeights.Black),
 
-            // Text Alignment (pour TextBlock, Label, etc.)
-
+            // Text Alignment
             ["text-left"] = e => SetTextAlignment(e, TextAlignment.Left),
             ["text-center"] = e => SetTextAlignment(e, TextAlignment.Center),
             ["text-right"] = e => SetTextAlignment(e, TextAlignment.Right),
             ["text-justify"] = e => SetTextAlignment(e, TextAlignment.Justify),
-
         };
 
-        private static void SetForeground(FrameworkElement element, string hex)
+        private static void SetForeground(DependencyObject element, string hex)
         {
             SetForeground(element, CreateBrush(hex));
         }
 
-        private static void SetForeground(FrameworkElement element, Brush brush)
+        private static void SetForeground(DependencyObject element, Brush brush)
         {
             switch (element)
             {
@@ -80,7 +78,7 @@ namespace TailwindWPF.Styling.Styles
             }
         }
 
-        private static void SetFontSize(FrameworkElement element, double size)
+        private static void SetFontSize(DependencyObject element, double size)
         {
             switch (element)
             {
@@ -93,7 +91,7 @@ namespace TailwindWPF.Styling.Styles
             }
         }
 
-        private static void SetFontWeight(FrameworkElement element, FontWeight weight)
+        private static void SetFontWeight(DependencyObject element, FontWeight weight)
         {
             switch (element)
             {
@@ -106,12 +104,18 @@ namespace TailwindWPF.Styling.Styles
             }
         }
 
-        private static void SetTextAlignment(FrameworkElement element, TextAlignment alignment)
+        private static void SetTextAlignment(DependencyObject element, TextAlignment alignment)
         {
             if (element is TextBlock textBlock)
             {
                 textBlock.TextAlignment = alignment;
             }
         }
+
+        private static Brush CreateBrush(string hex)
+        {
+            return (Brush)new BrushConverter().ConvertFromString(hex)!;
+        }
     }
+
 }

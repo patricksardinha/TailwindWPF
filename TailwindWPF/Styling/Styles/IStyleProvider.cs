@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace TailwindWPF.Styling.Styles
 {
     public interface IStyleProvider
     {
-        Dictionary<string, Action<Control>> GetStyles();
+        Dictionary<string, Action<DependencyObject>> GetStyles();
     }
 }

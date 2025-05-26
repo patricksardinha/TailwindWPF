@@ -26,5 +26,12 @@
             Click="MyButton_Click"
             tw:Tw.Class="bg-blue-500 text-white text-3xl rounded p-3 m-3" 
         />
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="Hello, Textblock"
+            tw:Tw.Class="text-blue-500 text-xl font-bold m-2" 
+        />
+
     </Grid>
 </Window>
