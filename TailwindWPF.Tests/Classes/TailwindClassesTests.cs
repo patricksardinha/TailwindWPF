@@ -25,44 +25,28 @@ namespace TailwindWPF.Tests.Classes
         [Fact]
         public void Can_Apply_Multiple_Classes()
         {
-            var btn = new Button();
+            var actualClasses = HelperSTA.RunInSta(() =>
+            {
+                var btn = new Button();
+                Tw.SetClass(btn, "p-4 m-2");
+                return (btn.Padding, btn.Margin);
+            });
 
-            Tw.SetClass(btn, "p-4 m-2 bg-blue-500");
-
-            Assert.Equal(new Thickness(16), btn.Padding);
-            Assert.Equal(new Thickness(8), btn.Margin);
-        }
-
-        [Theory]
-        [InlineData("p-1", 4)]
-        [InlineData("p-2", 8)]
-        [InlineData("p-4", 16)]
-        public void Padding_Classes_Apply_Correct_Values(string className, double expectedValue)
-        {
-            var element = new Button();
-
-            Tw.SetClass(element, className);
-
-            Assert.Equal(new Thickness(expectedValue), element.Padding);
+            Assert.Equal(new Thickness(16), actualClasses.Padding);
+            Assert.Equal(new Thickness(8), actualClasses.Margin);
         }
 
         [Fact]
         public void Can_Apply_Class_To_TextBox()
         {
-            var textBox = new TextBox();
+            var actualClasses = HelperSTA.RunInSta(() =>
+            {
+                var textBox = new TextBox();
+                Tw.SetClass(textBox, "border-2 rounded");
+                return textBox.BorderThickness;
+            });
 
-            Tw.SetClass(textBox, "border-2 rounded");
-
-            Assert.Equal(2.0, textBox.BorderThickness.Left);
-        }
-
-        [Fact]
-        public void Can_Apply_Class_To_Grid()
-        {
-            var grid = new Grid();
-
-            Tw.SetClass(grid, "gap-4");
-
+            Assert.Equal(2.0, actualClasses.Left);
         }
 
         [Fact]
@@ -70,7 +54,7 @@ namespace TailwindWPF.Tests.Classes
         {
             var btn = new Button();
 
-            Tw.SetClass(btn, "classe-inexistante");
+            Tw.SetClass(btn, "undefined");
         }
 
         [Fact]

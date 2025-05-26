@@ -24,7 +24,7 @@
             Grid.Column="1"
             Content="Button" 
             Click="MyButton_Click"
-            tw:Tw.Class="bg-blue-500 text-white rounded p-3 m-3" 
+            tw:Tw.Class="bg-blue-500 text-white text-3xl rounded p-3 m-3" 
         />
     </Grid>
 </Window>

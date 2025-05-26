@@ -54,12 +54,64 @@ namespace TailwindWPF.Styling.Styles
             ["font-black"] = c => c.FontWeight = FontWeights.Black,
 
             // Text Alignment (pour TextBlock, Label, etc.)
-            /*
-            ["text-left"] = c => { if (c is TextBlock tb) tb.TextAlignment = TextAlignment.Left; },
-            ["text-center"] = c => { if (c is TextBlock tb) tb.TextAlignment = TextAlignment.Center; },
-            ["text-right"] = c => { if (c is TextBlock tb) tb.TextAlignment = TextAlignment.Right; },
-            ["text-justify"] = c => { if (c is TextBlock tb) tb.TextAlignment = TextAlignment.Justify; },
-            */
+
+            ["text-left"] = e => SetTextAlignment(e, TextAlignment.Left),
+            ["text-center"] = e => SetTextAlignment(e, TextAlignment.Center),
+            ["text-right"] = e => SetTextAlignment(e, TextAlignment.Right),
+            ["text-justify"] = e => SetTextAlignment(e, TextAlignment.Justify),
+
         };
+
+        private static void SetForeground(FrameworkElement element, string hex)
+        {
+            SetForeground(element, CreateBrush(hex));
+        }
+
+        private static void SetForeground(FrameworkElement element, Brush brush)
+        {
+            switch (element)
+            {
+                case Control control:
+                    control.Foreground = brush;
+                    break;
+                case TextBlock textBlock:
+                    textBlock.Foreground = brush;
+                    break;
+            }
+        }
+
+        private static void SetFontSize(FrameworkElement element, double size)
+        {
+            switch (element)
+            {
+                case Control control:
+                    control.FontSize = size;
+                    break;
+                case TextBlock textBlock:
+                    textBlock.FontSize = size;
+                    break;
+            }
+        }
+
+        private static void SetFontWeight(FrameworkElement element, FontWeight weight)
+        {
+            switch (element)
+            {
+                case Control control:
+                    control.FontWeight = weight;
+                    break;
+                case TextBlock textBlock:
+                    textBlock.FontWeight = weight;
+                    break;
+            }
+        }
+
+        private static void SetTextAlignment(FrameworkElement element, TextAlignment alignment)
+        {
+            if (element is TextBlock textBlock)
+            {
+                textBlock.TextAlignment = alignment;
+            }
+        }
     }
 }
