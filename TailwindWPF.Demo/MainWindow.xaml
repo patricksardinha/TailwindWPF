@@ -19,6 +19,13 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="Hello, Textblock"
+            tw:Tw.Class="text-blue-500 text-xl font-bold m-2" 
+        />
+        
         <Button 
             Grid.Row="1"
             Grid.Column="1"
@@ -26,12 +33,23 @@
             Click="MyButton_Click"
             tw:Tw.Class="bg-blue-500 text-white text-3xl rounded p-3 m-3" 
         />
-        <TextBlock
-            Grid.Row="0"
+
+        <Button 
+            Grid.Row="2"
             Grid.Column="1"
-            Text="Hello, Textblock"
-            tw:Tw.Class="text-blue-500 text-xl font-bold m-2" 
+            Content="Button" 
+            Click="MyButton_Click"
+            tw:Tw.Class="bg-red-500 hover:bg-blue-600 text-gray-500 font-thin rounded-full" 
         />
+
+        <Button 
+            Grid.Row="2"
+            Grid.Column="2"
+            Content="Button" 
+            Click="MyButton_Click"
+            tw:Tw.Class="bg-blue-500 hover:bg-blue-400 text-white font-bold m-8 border-4 border-gray-500 hover:border-blue-500 rounded" 
+        />
+
 
     </Grid>
 </Window>
