@@ -38,6 +38,20 @@ namespace TailwindWPF.Tests.Classes
         }
 
         [Fact]
+        public void Can_Apply_Class_To_Grid()
+        {
+            var actualClass = HelperSTA.RunInSta(() =>
+            {
+                var grid = new Grid();
+                Tw.SetClass(grid, "grid-cols-3");
+                return grid.ColumnDefinitions;
+            });
+
+
+            Assert.Equal(3, actualClass.Count);
+        }
+
+        [Fact]
         public void Can_Apply_Multiple_Classes()
         {
             var actualClasses = HelperSTA.RunInSta(() =>
