@@ -7,49 +7,30 @@
         xmlns:tw="clr-namespace:TailwindWPF.Styling;assembly=TailwindWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <TextBlock
-            Grid.Row="0"
-            Grid.Column="1"
-            Text="Hello, Textblock"
-            tw:Tw.Class="text-blue-500 text-xl font-bold m-2" 
-        />
-        
-        <Button 
-            Grid.Row="1"
-            Grid.Column="1"
-            Content="Button" 
-            Click="MyButton_Click"
-            tw:Tw.Class="bg-blue-500 text-white text-3xl rounded p-3 m-3" 
-        />
+
+    <!-- Grid 3 cols 3 lines + gap -->
+    <Grid tw:Tw.Class="grid-cols-3 grid-rows-3 gap-4">
+
+        <TextBlock 
+            Text="Cell 1,1"
+            tw:Tw.Class="col-start-1 row-start-1 text-gray-500 text-3xl text-black text-center" />
 
         <Button 
-            Grid.Row="2"
-            Grid.Column="1"
-            Content="Button" 
-            Click="MyButton_Click"
-            tw:Tw.Class="bg-red-500 hover:bg-blue-600 text-gray-500 font-thin rounded-full" 
-        />
+            Content="Spans 2 columns"
+            tw:Tw.Class="col-start-2 col-span-2 row-start-1 bg-red-500 text-white" />
 
         <Button 
-            Grid.Row="2"
-            Grid.Column="2"
-            Content="Button" 
-            Click="MyButton_Click"
-            tw:Tw.Class="bg-blue-500 hover:bg-blue-400 text-white font-bold m-8 border-4 border-gray-500 hover:border-blue-500 rounded" 
-        />
+            Content="Spans 2 rows"
+            tw:Tw.Class="col-start-1 row-start-2 row-span-2 bg-green-500 text-white" />
 
+        <TextBlock 
+            Text="Center"
+            tw:Tw.Class="col-start-2 row-start-2 font-bold text-black text-center" />
+
+        <Button 
+            Content="Full Width"
+            Click="MyButton_Click"
+            tw:Tw.Class="col-span-full row-start-3 bg-gray-500 text-white" />
 
     </Grid>
 </Window>
