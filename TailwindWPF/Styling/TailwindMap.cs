@@ -21,6 +21,7 @@ namespace TailwindWPF.Styling
             new ButtonStyles(),
             new AnimationStyles(),
             new HoverStyles(),
+            new GridStyles(),
         };
 
         static TailwindMap()
