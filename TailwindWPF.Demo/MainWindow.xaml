@@ -8,29 +8,113 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <!-- Grid 3 cols 3 lines + gap -->
-    <Grid tw:Tw.Class="grid-cols-3 grid-rows-3 gap-4">
+    <ScrollViewer>
 
-        <TextBlock 
-            Text="Cell 1,1"
-            tw:Tw.Class="col-start-1 row-start-1 text-gray-500 text-3xl text-black text-center" />
+        <StackPanel tw:Tw.Class="p-4 gap-6">
+            <!-- Grid 3 cols 3 lines + gap -->
+            <Grid tw:Tw.Class="grid-cols-3 grid-rows-3 gap-4">
 
-        <Button 
-            Content="Spans 2 columns"
-            tw:Tw.Class="col-start-2 col-span-2 row-start-1 bg-red-500 text-white" />
+                <TextBlock 
+                Text="Cell 1,1"
+                tw:Tw.Class="col-start-1 row-start-1 text-gray-500 text-3xl text-black text-center" />
 
-        <Button 
-            Content="Spans 2 rows"
-            tw:Tw.Class="col-start-1 row-start-2 row-span-2 bg-green-500 text-white" />
+                <Button 
+                Content="Spans 2 columns"
+                tw:Tw.Class="col-start-2 col-span-2 row-start-1 bg-red-500 text-white" />
 
-        <TextBlock 
-            Text="Center"
-            tw:Tw.Class="col-start-2 row-start-2 font-bold text-black text-center" />
+                <Button 
+                Content="Spans 2 rows"
+                tw:Tw.Class="col-start-1 row-start-2 row-span-2 bg-green-500 text-white" />
 
-        <Button 
-            Content="Full Width"
-            Click="MyButton_Click"
-            tw:Tw.Class="col-span-full row-start-3 bg-gray-500 text-white" />
+                <TextBlock 
+                Text="Center"
+                tw:Tw.Class="col-start-2 row-start-2 font-bold text-black text-center" />
 
-    </Grid>
+                <Button 
+                Content="Full Width"
+                Click="MyButton_Click"
+                tw:Tw.Class="col-span-full row-start-3 bg-gray-500 text-white" />
+
+            </Grid>
+
+
+            <!-- Flex Row + justify-center -->
+            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                <StackPanel>
+                    <TextBlock Text="Flex Row - Center" tw:Tw.Class="text-lg font-bold mb-2"/>
+                    <StackPanel tw:Tw.Class="flex flex-row justify-center gap-2">
+                        <Button Content="Item 1" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded"/>
+                        <Button Content="Item 2" tw:Tw.Class="bg-green-500 text-white px-4 py-2 rounded"/>
+                        <Button Content="Item 3" tw:Tw.Class="bg-red-500 text-white px-4 py-2 rounded"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Flex Column + items-center -->
+            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                <StackPanel>
+                    <TextBlock Text="Flex Column - Items Center" tw:Tw.Class="text-lg font-bold mb-2"/>
+                    <StackPanel tw:Tw.Class="flex flex-col items-center gap-2 h-32">
+                        <Button Content="Item 1" tw:Tw.Class="bg-purple-500 text-white px-4 py-2 rounded"/>
+                        <Button Content="Item 2" tw:Tw.Class="bg-orange-500 text-white px-4 py-2 rounded"/>
+                        <Button Content="Item 3" tw:Tw.Class="bg-pink-500 text-white px-4 py-2 rounded"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Flex + grow -->
+            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                <StackPanel>
+                    <TextBlock Text="Flex with Grow" tw:Tw.Class="text-lg font-bold mb-2"/>
+                    <StackPanel tw:Tw.Class="flex flex-row gap-2">
+                        <Button Content="Fixed" tw:Tw.Class="bg-gray-500 text-white px-4 py-2 rounded"/>
+                        <Button Content="Grows" tw:Tw.Class="bg-blue-600 text-white px-4 py-2 rounded flex-1"/>
+                        <Button Content="Fixed" tw:Tw.Class="bg-gray-500 text-white px-4 py-2 rounded"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Position Absolute -->
+            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4 relative h-40">
+                <Canvas>
+                    <TextBlock Text="Relative Container" tw:Tw.Class="text-lg font-bold"/>
+                    <Button Content="Absolute Top-Right" 
+                            tw:Tw.Class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm"
+                            Canvas.Top="8" Canvas.Right="8"/>
+                    <Button Content="Absolute Bottom-Left" 
+                            tw:Tw.Class="absolute bottom-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-sm"
+                            Canvas.Bottom="8" Canvas.Left="8"/>
+                    <Button Content="Center" 
+                            tw:Tw.Class="absolute bg-blue-500 text-white px-2 py-1 rounded text-sm"
+                            Canvas.Top="60" Canvas.Left="300"/>
+                </Canvas>
+            </Border>
+
+            <!-- Z-Index -->
+            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                <StackPanel>
+                    <TextBlock Text="Z-Index Examples" tw:Tw.Class="text-lg font-bold mb-2"/>
+                    <Canvas Height="100">
+                        <Rectangle Width="80" Height="80" Fill="Red" Canvas.Left="20" Canvas.Top="10" tw:Tw.Class="z-10"/>
+                        <Rectangle Width="80" Height="80" Fill="Blue" Canvas.Left="40" Canvas.Top="20" tw:Tw.Class="z-20"/>
+                        <Rectangle Width="80" Height="80" Fill="Green" Canvas.Left="60" Canvas.Top="30" tw:Tw.Class="z-30"/>
+                    </Canvas>
+                </StackPanel>
+            </Border>
+
+            <!-- Visibility -->
+            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                <StackPanel>
+                    <TextBlock Text="Visibility Examples" tw:Tw.Class="text-lg font-bold mb-2"/>
+                    <StackPanel tw:Tw.Class="flex flex-row gap-2">
+                        <Button Content="Visible" tw:Tw.Class="bg-green-500 text-white px-4 py-2 rounded visible"/>
+                        <Button Content="Hidden" tw:Tw.Class="bg-red-500 text-white px-4 py-2 rounded hidden"/>
+                        <Button Content="Collapsed" tw:Tw.Class="bg-gray-500 text-white px-4 py-2 rounded collapse"/>
+                        <Button Content="Also Visible" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
 </Window>
