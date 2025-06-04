@@ -8,113 +8,660 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <ScrollViewer>
+    <TabControl tw:Tw.Class="h-full">
 
-        <StackPanel tw:Tw.Class="p-4 gap-6">
-            <!-- Grid 3 cols 3 lines + gap -->
-            <Grid tw:Tw.Class="grid-cols-3 grid-rows-3 gap-4">
+        <!-- Grid Demo Tab -->
+        <TabItem Header="Grid Demo" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-4">
+                    <TextBlock Text="Grid Layout Examples" tw:Tw.Class="text-2xl font-bold mb-4"/>
 
-                <TextBlock 
-                Text="Cell 1,1"
-                tw:Tw.Class="col-start-1 row-start-1 text-gray-500 text-3xl text-black text-center" />
-
-                <Button 
-                Content="Spans 2 columns"
-                tw:Tw.Class="col-start-2 col-span-2 row-start-1 bg-red-500 text-white" />
-
-                <Button 
-                Content="Spans 2 rows"
-                tw:Tw.Class="col-start-1 row-start-2 row-span-2 bg-green-500 text-white" />
-
-                <TextBlock 
-                Text="Center"
-                tw:Tw.Class="col-start-2 row-start-2 font-bold text-black text-center" />
-
-                <Button 
-                Content="Full Width"
-                Click="MyButton_Click"
-                tw:Tw.Class="col-span-full row-start-3 bg-gray-500 text-white" />
-
-            </Grid>
-
-
-            <!-- Flex Row + justify-center -->
-            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
-                <StackPanel>
-                    <TextBlock Text="Flex Row - Center" tw:Tw.Class="text-lg font-bold mb-2"/>
-                    <StackPanel tw:Tw.Class="flex flex-row justify-center gap-2">
-                        <Button Content="Item 1" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded"/>
-                        <Button Content="Item 2" tw:Tw.Class="bg-green-500 text-white px-4 py-2 rounded"/>
-                        <Button Content="Item 3" tw:Tw.Class="bg-red-500 text-white px-4 py-2 rounded"/>
-                    </StackPanel>
+                    <!-- Grid 3x3 -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Grid 3x3 with Gap" tw:Tw.Class="text-lg font-semibold mb-2"/>
+                            <Grid tw:Tw.Class="grid-cols-3 grid-rows-3 gap-4 h-64">
+                                <TextBlock Text="Cell 1,1" tw:Tw.Class="col-start-1 row-start-1 text-gray-500 text-lg text-center bg-gray-100 p-2 rounded"/>
+                                <Button Content="Spans 2 columns" tw:Tw.Class="col-start-2 col-span-2 row-start-1 bg-red-500 text-white rounded"/>
+                                <Button Content="Spans 2 rows" tw:Tw.Class="col-start-1 row-start-2 row-span-2 bg-green-500 text-white rounded"/>
+                                <TextBlock Text="Center" tw:Tw.Class="col-start-2 row-start-2 font-bold text-black text-center bg-yellow-200 p-2 rounded"/>
+                                <Button Content="Full Width" tw:Tw.Class="col-span-full row-start-3 bg-gray-500 text-white rounded"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
-            </Border>
+            </ScrollViewer>
+        </TabItem>
 
-            <!-- Flex Column + items-center -->
-            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
-                <StackPanel>
-                    <TextBlock Text="Flex Column - Items Center" tw:Tw.Class="text-lg font-bold mb-2"/>
-                    <StackPanel tw:Tw.Class="flex flex-col items-center gap-2 h-32">
-                        <Button Content="Item 1" tw:Tw.Class="bg-purple-500 text-white px-4 py-2 rounded"/>
-                        <Button Content="Item 2" tw:Tw.Class="bg-orange-500 text-white px-4 py-2 rounded"/>
-                        <Button Content="Item 3" tw:Tw.Class="bg-pink-500 text-white px-4 py-2 rounded"/>
-                    </StackPanel>
+        <!-- Flexbox Demo Tab -->
+        <TabItem Header="Flexbox Demo" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-6">
+                    <TextBlock Text="Flexbox Layout Examples" tw:Tw.Class="text-2xl font-bold"/>
+
+                    <!-- Flex Row Center -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Flex Row - Center" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row justify-center gap-2 h-16 bg-gray-50 rounded">
+                                <Button Content="Item 1" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded"/>
+                                <Button Content="Item 2" tw:Tw.Class="bg-green-500 text-white px-4 py-2 rounded"/>
+                                <Button Content="Item 3" tw:Tw.Class="bg-red-500 text-white px-4 py-2 rounded"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Flex Column -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Flex Column - Items Center" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-col items-center gap-2 h-40 bg-gray-50 rounded">
+                                <Button Content="Item 1" tw:Tw.Class="bg-purple-500 text-white px-4 py-2 rounded"/>
+                                <Button Content="Item 2" tw:Tw.Class="bg-orange-500 text-white px-4 py-2 rounded"/>
+                                <Button Content="Item 3" tw:Tw.Class="bg-pink-500 text-white px-4 py-2 rounded"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Flex Grow -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Flex with Grow" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-2 bg-gray-50 p-2 rounded">
+                                <Button Content="Fixed" tw:Tw.Class="bg-gray-500 text-white px-4 py-2 rounded"/>
+                                <Button Content="Grows" tw:Tw.Class="bg-blue-600 text-white px-4 py-2 rounded flex-1"/>
+                                <Button Content="Fixed" tw:Tw.Class="bg-gray-500 text-white px-4 py-2 rounded"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
-            </Border>
+            </ScrollViewer>
+        </TabItem>
 
-            <!-- Flex + grow -->
-            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
-                <StackPanel>
-                    <TextBlock Text="Flex with Grow" tw:Tw.Class="text-lg font-bold mb-2"/>
-                    <StackPanel tw:Tw.Class="flex flex-row gap-2">
-                        <Button Content="Fixed" tw:Tw.Class="bg-gray-500 text-white px-4 py-2 rounded"/>
-                        <Button Content="Grows" tw:Tw.Class="bg-blue-600 text-white px-4 py-2 rounded flex-1"/>
-                        <Button Content="Fixed" tw:Tw.Class="bg-gray-500 text-white px-4 py-2 rounded"/>
-                    </StackPanel>
+        <!-- Effects Demo Tab -->
+        <TabItem Header="Effects Demo" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-6">
+                    <TextBlock Text="Effects Examples" tw:Tw.Class="text-2xl font-bold"/>
+
+                    <!-- Opacity -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Opacity" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-4">
+                                <Button Content="100%" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded opacity-100"/>
+                                <Button Content="75%" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded opacity-75"/>
+                                <Button Content="50%" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded opacity-50"/>
+                                <Button Content="25%" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded opacity-25"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Shadows -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Shadows" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-6 bg-gray-50 p-4 rounded">
+                                <Border tw:Tw.Class="w-20 h-20 bg-white rounded-lg shadow-sm flex items-center justify-center">
+                                    <TextBlock Text="sm" tw:Tw.Class="text-gray-600"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center">
+                                    <TextBlock Text="md" tw:Tw.Class="text-gray-600"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center">
+                                    <TextBlock Text="lg" tw:Tw.Class="text-gray-600"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-20 h-20 bg-white rounded-lg shadow-xl flex items-center justify-center">
+                                    <TextBlock Text="xl" tw:Tw.Class="text-gray-600"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Colored Shadows -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Colored Shadows" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-4">
+                                <Button Content="Red" tw:Tw.Class="bg-white text-red-600 px-4 py-2 rounded border shadow-red-500"/>
+                                <Button Content="Blue" tw:Tw.Class="bg-white text-blue-600 px-4 py-2 rounded border shadow-blue-500"/>
+                                <Button Content="Green" tw:Tw.Class="bg-white text-green-600 px-4 py-2 rounded border shadow-green-500"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Blur -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Blur Effects" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-4">
+                                <Border tw:Tw.Class="w-20 h-20 bg-blue-500 rounded-lg blur-none flex items-center justify-center">
+                                    <TextBlock Text="none" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-20 h-20 bg-blue-500 rounded-lg blur-sm flex items-center justify-center">
+                                    <TextBlock Text="sm" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-20 h-20 bg-blue-500 rounded-lg blur flex items-center justify-center">
+                                    <TextBlock Text="base" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-20 h-20 bg-blue-500 rounded-lg blur-lg flex items-center justify-center">
+                                    <TextBlock Text="lg" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
-            </Border>
+            </ScrollViewer>
+        </TabItem>
 
-            <!-- Position Absolute -->
-            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4 relative h-40">
-                <Canvas>
-                    <TextBlock Text="Relative Container" tw:Tw.Class="text-lg font-bold"/>
-                    <Button Content="Absolute Top-Right" 
-                            tw:Tw.Class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm"
-                            Canvas.Top="8" Canvas.Right="8"/>
-                    <Button Content="Absolute Bottom-Left" 
-                            tw:Tw.Class="absolute bottom-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-sm"
-                            Canvas.Bottom="8" Canvas.Left="8"/>
-                    <Button Content="Center" 
-                            tw:Tw.Class="absolute bg-blue-500 text-white px-2 py-1 rounded text-sm"
-                            Canvas.Top="60" Canvas.Left="300"/>
-                </Canvas>
-            </Border>
+        <!-- Spacing & Layout Tab -->
+        <TabItem Header="Spacing and Layout" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-6">
+                    <TextBlock Text="Spacing and Layout Examples" tw:Tw.Class="text-2xl font-bold"/>
 
-            <!-- Z-Index -->
-            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
-                <StackPanel>
-                    <TextBlock Text="Z-Index Examples" tw:Tw.Class="text-lg font-bold mb-2"/>
-                    <Canvas Height="100">
-                        <Rectangle Width="80" Height="80" Fill="Red" Canvas.Left="20" Canvas.Top="10" tw:Tw.Class="z-10"/>
-                        <Rectangle Width="80" Height="80" Fill="Blue" Canvas.Left="40" Canvas.Top="20" tw:Tw.Class="z-20"/>
-                        <Rectangle Width="80" Height="80" Fill="Green" Canvas.Left="60" Canvas.Top="30" tw:Tw.Class="z-30"/>
-                    </Canvas>
+                    <!-- Padding -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Padding" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-4">
+                                <Border tw:Tw.Class="bg-blue-100 p-2 rounded">
+                                    <TextBlock Text="p-2" tw:Tw.Class="bg-blue-500 text-white p-1 rounded text-center"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-green-100 p-4 rounded">
+                                    <TextBlock Text="p-4" tw:Tw.Class="bg-green-500 text-white p-1 rounded text-center"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-red-100 p-6 rounded">
+                                    <TextBlock Text="p-6" tw:Tw.Class="bg-red-500 text-white p-1 rounded text-center"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Margin -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Margin" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <Border tw:Tw.Class="bg-gray-100 p-4 rounded">
+                                <StackPanel tw:Tw.Class="gap-0">
+                                    <Border tw:Tw.Class="bg-blue-500 text-white p-2 rounded m-2">
+                                        <TextBlock Text="m-2" tw:Tw.Class="text-center"/>
+                                    </Border>
+                                    <Border tw:Tw.Class="bg-green-500 text-white p-2 rounded m-4">
+                                        <TextBlock Text="m-4" tw:Tw.Class="text-center"/>
+                                    </Border>
+                                    <Border tw:Tw.Class="bg-red-500 text-white p-2 rounded mx-auto">
+                                        <TextBlock Text="mx-auto" tw:Tw.Class="text-center"/>
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Width & Height -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Width and Height" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-4">
+                                <Border tw:Tw.Class="w-16 h-16 bg-blue-500 rounded flex items-center justify-center">
+                                    <TextBlock Text="w-16 h-16" tw:Tw.Class="text-white text-xs text-center"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-24 h-20 bg-green-500 rounded flex items-center justify-center">
+                                    <TextBlock Text="w-24 h-20" tw:Tw.Class="text-white text-xs text-center"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-32 h-24 bg-red-500 rounded flex items-center justify-center">
+                                    <TextBlock Text="w-32 h-24" tw:Tw.Class="text-white text-xs text-center"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
-            </Border>
+            </ScrollViewer>
+        </TabItem>
 
-            <!-- Visibility -->
-            <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
-                <StackPanel>
-                    <TextBlock Text="Visibility Examples" tw:Tw.Class="text-lg font-bold mb-2"/>
-                    <StackPanel tw:Tw.Class="flex flex-row gap-2">
-                        <Button Content="Visible" tw:Tw.Class="bg-green-500 text-white px-4 py-2 rounded visible"/>
-                        <Button Content="Hidden" tw:Tw.Class="bg-red-500 text-white px-4 py-2 rounded hidden"/>
-                        <Button Content="Collapsed" tw:Tw.Class="bg-gray-500 text-white px-4 py-2 rounded collapse"/>
-                        <Button Content="Also Visible" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded"/>
-                    </StackPanel>
+        <!-- Position Demo Tab -->
+        <TabItem Header="Position Demo" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-6">
+                    <TextBlock Text="Position Examples" tw:Tw.Class="text-2xl font-bold"/>
+
+                    <!-- Relative Position -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Relative Container" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <Border tw:Tw.Class="relative h-32 bg-gray-100 rounded">
+                                <Canvas>
+                                    <Button Content="Top-Left" tw:Tw.Class="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded text-sm" Canvas.Top="8" Canvas.Left="8"/>
+                                    <Button Content="Top-Right" tw:Tw.Class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm" Canvas.Top="8" Canvas.Right="8"/>
+                                    <Button Content="Bottom-Center" tw:Tw.Class="absolute bottom-2 bg-green-500 text-white px-2 py-1 rounded text-sm" Canvas.Bottom="8" Canvas.Left="200"/>
+                                </Canvas>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Z-Index -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Z-Index" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <Canvas Height="120" tw:Tw.Class="bg-gray-100 rounded">
+                                <Rectangle Width="60" Height="60" Fill="Red" Canvas.Left="20" Canvas.Top="20" tw:Tw.Class="z-10" ToolTip="z-10"/>
+                                <Rectangle Width="60" Height="60" Fill="Blue" Canvas.Left="40" Canvas.Top="30" tw:Tw.Class="z-20" ToolTip="z-20"/>
+                                <Rectangle Width="60" Height="60" Fill="Green" Canvas.Left="60" Canvas.Top="40" tw:Tw.Class="z-30" ToolTip="z-30"/>
+                                <TextBlock Text="Hover to see z-index" Canvas.Left="150" Canvas.Top="50" tw:Tw.Class="text-gray-600"/>
+                            </Canvas>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Visibility -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Visibility" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-4">
+                                <Button Content="Visible" tw:Tw.Class="bg-green-500 text-white px-4 py-2 rounded visible"/>
+                                <Button Content="Hidden" tw:Tw.Class="bg-red-500 text-white px-4 py-2 rounded hidden"/>
+                                <Button Content="Also Visible" tw:Tw.Class="bg-blue-500 text-white px-4 py-2 rounded"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
-            </Border>
+            </ScrollViewer>
+        </TabItem>
 
-        </StackPanel>
-    </ScrollViewer>
+        <!-- Colors Demo Tab -->
+        <TabItem Header="Colors Demo" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-6">
+                    <TextBlock Text="Colors Examples" tw:Tw.Class="text-2xl font-bold"/>
+
+                    <!-- Background Colors -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Background Colors" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="gap-2">
+                                <!-- Grays -->
+                                <StackPanel tw:Tw.Class="flex flex-row gap-2">
+                                    <Border tw:Tw.Class="w-12 h-12 bg-gray-100 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-gray-300 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-gray-500 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-gray-700 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-gray-900 rounded border"/>
+                                    <TextBlock Text="Grays" tw:Tw.Class="ml-2 self-center"/>
+                                </StackPanel>
+                                <!-- Blues -->
+                                <StackPanel tw:Tw.Class="flex flex-row gap-2">
+                                    <Border tw:Tw.Class="w-12 h-12 bg-blue-100 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-blue-300 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-blue-500 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-blue-700 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-blue-900 rounded border"/>
+                                    <TextBlock Text="Blues" tw:Tw.Class="ml-2 self-center"/>
+                                </StackPanel>
+                                <!-- Reds -->
+                                <StackPanel tw:Tw.Class="flex flex-row gap-2">
+                                    <Border tw:Tw.Class="w-12 h-12 bg-red-100 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-red-300 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-red-500 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-red-700 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-red-900 rounded border"/>
+                                    <TextBlock Text="Reds" tw:Tw.Class="ml-2 self-center"/>
+                                </StackPanel>
+                                <!-- Greens -->
+                                <StackPanel tw:Tw.Class="flex flex-row gap-2">
+                                    <Border tw:Tw.Class="w-12 h-12 bg-green-100 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-green-300 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-green-500 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-green-700 rounded border"/>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-green-900 rounded border"/>
+                                    <TextBlock Text="Greens" tw:Tw.Class="ml-2 self-center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Text Colors -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Text Colors" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="gap-2">
+                                <TextBlock Text="Default text color" tw:Tw.Class="text-base"/>
+                                <TextBlock Text="Gray text" tw:Tw.Class="text-gray-500"/>
+                                <TextBlock Text="Blue text" tw:Tw.Class="text-blue-600"/>
+                                <TextBlock Text="Red text" tw:Tw.Class="text-red-600"/>
+                                <TextBlock Text="Green text" tw:Tw.Class="text-green-600"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Font Sizes -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Font Sizes" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="gap-1">
+                                <TextBlock Text="Extra small text" tw:Tw.Class="text-xs"/>
+                                <TextBlock Text="Small text" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="Base text" tw:Tw.Class="text-base"/>
+                                <TextBlock Text="Large text" tw:Tw.Class="text-lg"/>
+                                <TextBlock Text="Extra large text" tw:Tw.Class="text-xl"/>
+                                <TextBlock Text="2X large text" tw:Tw.Class="text-2xl"/>
+                                <TextBlock Text="3X large text" tw:Tw.Class="text-3xl"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+        <!-- Transform Demo Tab -->
+        <TabItem Header="Transform Demo" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-6">
+                    <TextBlock Text="Transform Examples" tw:Tw.Class="text-2xl font-bold"/>
+
+                    <!-- Scale -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Scale" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-8 items-center justify-center bg-gray-50 p-8 rounded">
+                                <Border tw:Tw.Class="w-16 h-16 bg-blue-500 rounded scale-50 flex items-center justify-center">
+                                    <TextBlock Text="50%" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-green-500 rounded scale-75 flex items-center justify-center">
+                                    <TextBlock Text="75%" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-red-500 rounded scale-100 flex items-center justify-center">
+                                    <TextBlock Text="100%" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-purple-500 rounded scale-125 flex items-center justify-center">
+                                    <TextBlock Text="125%" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-orange-500 rounded scale-150 flex items-center justify-center">
+                                    <TextBlock Text="150%" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Rotate -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Rotate" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-8 items-center justify-center bg-gray-50 p-8 rounded">
+                                <Border tw:Tw.Class="w-16 h-16 bg-blue-500 rounded rotate-0 flex items-center justify-center">
+                                    <TextBlock Text="0°" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-green-500 rounded rotate-12 flex items-center justify-center">
+                                    <TextBlock Text="12°" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-red-500 rounded rotate-45 flex items-center justify-center">
+                                    <TextBlock Text="45°" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-purple-500 rounded rotate-90 flex items-center justify-center">
+                                    <TextBlock Text="90°" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-orange-500 rounded -rotate-45 flex items-center justify-center">
+                                    <TextBlock Text="-45°" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Translate -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Translate" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <Border tw:Tw.Class="bg-gray-50 p-8 rounded relative" Height="120">
+                                <Canvas>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-blue-500 rounded translate-x-0 translate-y-0 flex items-center justify-center absolute" Canvas.Left="50" Canvas.Top="50">
+                                        <TextBlock Text="0,0" tw:Tw.Class="text-white text-xs"/>
+                                    </Border>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-green-500 rounded translate-x-4 translate-y-0 flex items-center justify-center absolute" Canvas.Left="120" Canvas.Top="50">
+                                        <TextBlock Text="x:4" tw:Tw.Class="text-white text-xs"/>
+                                    </Border>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-red-500 rounded translate-x-0 translate-y-4 flex items-center justify-center absolute" Canvas.Left="190" Canvas.Top="50">
+                                        <TextBlock Text="y:4" tw:Tw.Class="text-white text-xs"/>
+                                    </Border>
+                                    <Border tw:Tw.Class="w-12 h-12 bg-purple-500 rounded translate-x-8 translate-y-8 flex items-center justify-center absolute" Canvas.Left="260" Canvas.Top="50">
+                                        <TextBlock Text="8,8" tw:Tw.Class="text-white text-xs"/>
+                                    </Border>
+                                </Canvas>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Skew -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Skew" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-8 items-center justify-center bg-gray-50 p-8 rounded">
+                                <Border tw:Tw.Class="w-16 h-16 bg-blue-500 rounded skew-x-0 flex items-center justify-center">
+                                    <TextBlock Text="x:0" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-green-500 rounded skew-x-3 flex items-center justify-center">
+                                    <TextBlock Text="x:3" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-red-500 rounded skew-x-6 flex items-center justify-center">
+                                    <TextBlock Text="x:6" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-purple-500 rounded skew-y-3 flex items-center justify-center">
+                                    <TextBlock Text="y:3" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-orange-500 rounded skew-x-3 skew-y-3 flex items-center justify-center">
+                                    <TextBlock Text="x:3 y:3" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Transform Origin -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Transform Origin" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-8 items-center justify-center bg-gray-50 p-8 rounded">
+                                <Border tw:Tw.Class="w-16 h-16 bg-blue-500 rounded origin-center rotate-45 flex items-center justify-center">
+                                    <TextBlock Text="center" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-green-500 rounded origin-top-left rotate-45 flex items-center justify-center">
+                                    <TextBlock Text="top-left" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-red-500 rounded origin-bottom-right rotate-45 flex items-center justify-center">
+                                    <TextBlock Text="bottom-right" tw:Tw.Class="text-white text-xs"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Combined Transforms -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Combined Transforms" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-8 items-center justify-center bg-gray-50 p-8 rounded">
+                                <Border tw:Tw.Class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded scale-110 rotate-12 flex items-center justify-center">
+                                    <TextBlock Text="Scale + Rotate" tw:Tw.Class="text-white text-xs text-center"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded scale-125 -rotate-6 skew-x-3 flex items-center justify-center">
+                                    <TextBlock Text="Multi" tw:Tw.Class="text-white text-xs text-center"/>
+                                </Border>
+                                <Border tw:Tw.Class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded scale-90 rotate-45 translate-x-2 flex items-center justify-center">
+                                    <TextBlock Text="Complex" tw:Tw.Class="text-white text-xs text-center"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+        <!-- Responsive Demo Tab -->
+        <TabItem Header="Responsive Demo" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-6">
+                    <TextBlock Text="Responsive Breakpoints Demo" tw:Tw.Class="text-2xl font-bold"/>
+                    <TextBlock Text="Resize the window to see responsive changes!" tw:Tw.Class="text-lg text-gray-600"/>
+
+                    <!-- Current breakpoint info -->
+                    <Border tw:Tw.Class="border-2 border-blue-300 rounded-lg p-4 bg-blue-50">
+                        <StackPanel>
+                            <TextBlock Text="Breakpoints:" tw:Tw.Class="text-lg font-bold mb-2"/>
+                            <StackPanel tw:Tw.Class="gap-1">
+                                <TextBlock Text="• Base (default): &lt; 640px" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• sm: ≥ 640px" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• md: ≥ 768px" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• lg: ≥ 1024px" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• xl: ≥ 1280px" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• 2xl: ≥ 1536px" tw:Tw.Class="text-sm"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Responsive Text Size -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Responsive Text Size" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <TextBlock tw:ResponsiveTw.ResponsiveClass="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+                                       tw:Tw.Class="text-center p-4 bg-gray-100 rounded">
+                                <Run Text="This text changes size based on screen width!"/>
+                            </TextBlock>
+                            <TextBlock Text="Classes: text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl" tw:Tw.Class="text-xs text-gray-500 mt-2"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Responsive Grid -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Responsive Grid" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <Grid tw:ResponsiveTw.ResponsiveClass="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                <Border tw:Tw.Class="bg-blue-500 text-white p-4 rounded text-center">
+                                    <TextBlock Text="Item 1"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-green-500 text-white p-4 rounded text-center">
+                                    <TextBlock Text="Item 2"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-red-500 text-white p-4 rounded text-center">
+                                    <TextBlock Text="Item 3"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-purple-500 text-white p-4 rounded text-center">
+                                    <TextBlock Text="Item 4"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-orange-500 text-white p-4 rounded text-center">
+                                    <TextBlock Text="Item 5"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-pink-500 text-white p-4 rounded text-center">
+                                    <TextBlock Text="Item 6"/>
+                                </Border>
+                            </Grid>
+                            <TextBlock Text="Classes: grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" tw:Tw.Class="text-xs text-gray-500 mt-2"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Responsive Padding -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Responsive Padding" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <Border tw:ResponsiveTw.ResponsiveClass="p-2 sm:p-4 md:p-6 lg:p-8 bg-gradient-to-r from-blue-400 to-purple-500 rounded">
+                                <TextBlock Text="Padding changes with screen size" tw:Tw.Class="text-white text-center"/>
+                            </Border>
+                            <TextBlock Text="Classes: p-2 sm:p-4 md:p-6 lg:p-8" tw:Tw.Class="text-xs text-gray-500 mt-2"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Responsive Visibility -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Responsive Visibility" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:Tw.Class="gap-2">
+                                <Border tw:ResponsiveTw.ResponsiveClass="block sm:hidden bg-red-500 text-white p-3 rounded text-center">
+                                    <TextBlock Text="Only visible on mobile (lt sm)"/>
+                                </Border>
+                                <Border tw:ResponsiveTw.ResponsiveClass="hidden sm:block md:hidden bg-green-500 text-white p-3 rounded text-center">
+                                    <TextBlock Text="Only visible on small screens (sm to md)"/>
+                                </Border>
+                                <Border tw:ResponsiveTw.ResponsiveClass="hidden md:block lg:hidden bg-blue-500 text-white p-3 rounded text-center">
+                                    <TextBlock Text="Only visible on medium screens (md to lg)"/>
+                                </Border>
+                                <Border tw:ResponsiveTw.ResponsiveClass="hidden lg:block bg-purple-500 text-white p-3 rounded text-center">
+                                    <TextBlock Text="Only visible on large screens (lg+)"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Responsive Flexbox -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Responsive Flexbox Direction" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:ResponsiveTw.ResponsiveClass="flex flex-col sm:flex-row gap-4 bg-gray-100 p-4 rounded">
+                                <Border tw:Tw.Class="bg-blue-500 text-white p-3 rounded text-center flex-1">
+                                    <TextBlock Text="Flex Item 1"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-green-500 text-white p-3 rounded text-center flex-1">
+                                    <TextBlock Text="Flex Item 2"/>
+                                </Border>
+                                <Border tw:Tw.Class="bg-red-500 text-white p-3 rounded text-center flex-1">
+                                    <TextBlock Text="Flex Item 3"/>
+                                </Border>
+                            </StackPanel>
+                            <TextBlock Text="Classes: flex flex-col sm:flex-row gap-4" tw:Tw.Class="text-xs text-gray-500 mt-2"/>
+                            <TextBlock Text="→ Stacks vertically on mobile, horizontally on larger screens" tw:Tw.Class="text-xs text-gray-600"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Responsive Colors -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Responsive Colors" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:Tw.Class="gap-4">
+                                <Border tw:ResponsiveTw.ResponsiveClass="bg-red-500 sm:bg-blue-500 md:bg-green-500 lg:bg-purple-500 text-white p-4 rounded text-center">
+                                    <TextBlock Text="Background color changes with breakpoints"/>
+                                </Border>
+                                <TextBlock tw:ResponsiveTw.ResponsiveClass="text-red-600 sm:text-blue-600 md:text-green-600 lg:text-purple-600 text-center font-semibold">
+                                    <Run Text="Text color also changes with screen size"/>
+                                </TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Background: bg-red-500 sm:bg-blue-500 md:bg-green-500 lg:bg-purple-500" tw:Tw.Class="text-xs text-gray-500 mt-2"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Responsive Transforms -->
+                    <Border tw:Tw.Class="border-2 border-gray-300 rounded-lg p-4">
+                        <StackPanel>
+                            <TextBlock Text="Responsive Transforms" tw:Tw.Class="text-lg font-bold mb-4"/>
+                            <StackPanel tw:Tw.Class="flex flex-row gap-8 items-center justify-center bg-gray-50 p-8 rounded">
+                                <Border tw:ResponsiveTw.ResponsiveClass="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded scale-75 sm:scale-100 md:scale-125 lg:rotate-45 xl:scale-150 flex items-center justify-center">
+                                    <TextBlock Text="Transform" tw:Tw.Class="text-white text-xs text-center"/>
+                                </Border>
+                                <Border tw:ResponsiveTw.ResponsiveClass="w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded rotate-0 sm:rotate-12 md:rotate-45 lg:rotate-90 flex items-center justify-center">
+                                    <TextBlock Text="Rotate" tw:Tw.Class="text-white text-xs text-center"/>
+                                </Border>
+                            </StackPanel>
+                            <TextBlock Text="Left box: scale-75 sm:scale-100 md:scale-125 lg:rotate-45 xl:scale-150" tw:Tw.Class="text-xs text-gray-500 mt-2"/>
+                            <TextBlock Text="Right box: rotate-0 sm:rotate-12 md:rotate-45 lg:rotate-90" tw:Tw.Class="text-xs text-gray-500"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- How to Use -->
+                    <Border tw:Tw.Class="border-2 border-green-300 rounded-lg p-4 bg-green-50">
+                        <StackPanel>
+                            <TextBlock Text="💡 How to Use Responsive Classes" tw:Tw.Class="text-lg font-bold mb-3"/>
+                            <StackPanel tw:Tw.Class="gap-2">
+                                <TextBlock tw:Tw.Class="text-sm">
+                                    <Run Text="• Use "/>
+                                    <Run Text="tw:ResponsiveTw.ResponsiveClass" tw:Tw.Class="font-mono bg-gray-200 px-1 rounded"/>
+                                    <Run Text=" instead of "/>
+                                    <Run Text="tw:Tw.Class" tw:Tw.Class="font-mono bg-gray-200 px-1 rounded"/>
+                                </TextBlock>
+                                <TextBlock Text="• Prefix classes with breakpoint names: sm:, md:, lg:, xl:, 2xl:" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• Base classes (without prefix) apply to all sizes" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• Responsive classes apply from their breakpoint and up" tw:Tw.Class="text-sm"/>
+                                <TextBlock tw:Tw.Class="text-sm">
+                                    <Run Text="• Example: "/>
+                                    <Run Text='tw:ResponsiveTw.ResponsiveClass="p-2 sm:p-4 lg:p-8"' tw:Tw.Class="font-mono bg-gray-200 px-1 rounded"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+    </TabControl>
 </Window>

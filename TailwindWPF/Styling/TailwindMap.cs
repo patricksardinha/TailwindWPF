@@ -24,6 +24,8 @@ namespace TailwindWPF.Styling
             new GridStyles(),
             new FlexboxStyles(),
             new DisplayPositionStyles(),
+            new EffectsStyles(),
+            new TransformStyles(),
         };
 
         static TailwindMap()
