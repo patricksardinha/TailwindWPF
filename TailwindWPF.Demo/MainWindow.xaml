@@ -494,7 +494,9 @@
         <!-- Responsive Demo Tab -->
         <TabItem Header="Responsive Demo" tw:Tw.Class="p-4">
             <ScrollViewer>
+
                 <StackPanel tw:Tw.Class="p-4 gap-6">
+                    
                     <TextBlock Text="Responsive Breakpoints Demo" tw:Tw.Class="text-2xl font-bold"/>
                     <TextBlock Text="Resize the window to see responsive changes!" tw:Tw.Class="text-lg text-gray-600"/>
 
