@@ -1,4 +1,4 @@
-# TailwindWPF 🎨 (in development)
+# TailwindWPF (in development)
 
 A modern WPF library that brings the power and simplicity of Tailwind CSS to your WPF applications.
 
@@ -6,7 +6,7 @@ A modern WPF library that brings the power and simplicity of Tailwind CSS to you
 [![Downloads](https://img.shields.io/nuget/dt/TailwindWPF.svg)](https://www.nuget.org/packages/TailwindWPF)
 [![License](https://img.shields.io/github/license/patricksardinha/TailwindWPF.svg)](LICENSE)
 
-## 🚀 Introduction
+## Introduction
 
 TailwindWPF allows you to style your WPF controls with familiar Tailwind CSS-inspired syntax. No more repetitive XAML declarations - just use utility classes in a `tw:Tw.Class` attribute!
 
@@ -39,7 +39,7 @@ TailwindWPF allows you to style your WPF controls with familiar Tailwind CSS-ins
         tw:Tw.Class="bg-blue-500 text-white px-3 py-2 m-2 rounded-md font-bold" />
 ```
 
-## 📦 Installation [no releases are available for the moment]
+## Installation [no releases are available for the moment]
 
 ### Via NuGet Package Manager
 ```
@@ -56,7 +56,7 @@ dotnet add package TailwindWPF
 <PackageReference Include="TailwindWPF" Version="1.0.0" />
 ```
 
-## 🎯 Quick Start
+## Quick Start
 
 1. **Add the namespace** to your XAML:
 ```xml
@@ -77,7 +77,7 @@ xmlns:tw="clr-namespace:TailwindWPF.Styling;assembly=TailwindWPF"
 </Grid>
 ```
 
-## 🎨 Supported Features [in development]
+## Supported Features [in development]
 
 ### Colors and Backgrounds
 ```xml
@@ -150,7 +150,7 @@ xmlns:tw="clr-namespace:TailwindWPF.Styling;assembly=TailwindWPF"
 <Button tw:Tw.Class="bg-blue-500 hover:bg-blue-400 text-white font-bold border border-gray-500 hover:border-blue-500" />
 ```
 
-## 🛠️ Advanced Usage
+## Advanced Usage
 
 ### Custom Extensions
 You can easily add your own styles:
@@ -187,7 +187,7 @@ var customStyles = new Dictionary<string, Action<DependencyObject>>
 TailwindMap.RegisterCustomStyles(customStyles);
 ```
 
-## 📚 Complete Documentation
+## Complete Documentation
 
 You can refer to the documentation at [Tailwind CSS](https://tailwindcss.com)
 
@@ -210,7 +210,7 @@ You can refer to the documentation at [Tailwind CSS](https://tailwindcss.com)
 - **Positioning**: `col-start-*`, `row-start-*`, `col-end-*`, `row-end-*`
 - **Spanning**: `col-span-*`, `row-span-*`, `col-span-full`, `row-span-full`
 
-## 🎯 Complete Example
+## Complete Example
 
 ```xml
 <Window x:Class="MyApp.MainWindow"
@@ -242,19 +242,7 @@ You can refer to the documentation at [Tailwind CSS](https://tailwindcss.com)
 </Window>
 ```
 
-## 🚧 Roadmap
-
-- [ ] **Mapping** (`text-*`, `bg-*`, etc.)
-- [ ] **Flexbox layouts** (`flex`, `flex-col`, `justify-center`, etc.)
-- [ ] **Animations and transitions** (`transition-all`, `duration-300`, etc.)  
-- [ ] **Responsive design** (`sm:text-lg`, `md:grid-cols-2`, etc.)
-- [ ] **Dark mode** (`dark:bg-gray-800`, etc.)
-- [ ] **Focus states** (`focus:ring-2`, `focus:outline-none`, etc.)
-- [ ] **Shadows and effects** (`shadow-lg`, `blur-sm`, etc.)
-- [ ] **Transforms** (`rotate-45`, `scale-110`, etc.)
-- [ ] **Position and z-index** (`absolute`, `relative`, `z-10`, etc.)
-
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Here's how to contribute:
 
@@ -273,11 +261,11 @@ dotnet restore
 dotnet build
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Tailwind CSS](https://tailwindcss.com) for the inspiration and methodology
 - The WPF community for support and feedback
@@ -291,6 +279,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 
-**⭐ Don't forget to star the repo if TailwindWPF helps you! ⭐**
+** Don't forget to star the repo if TailwindWPF helps you! **
 
-[Documentation](https://github.com/patricksardinha/TailwindWPF/wiki) • [Examples](https://github.com/patricksardinha/TailwindWPF/tree/main/examples) • [Changelog](CHANGELOG.md)
+[Documentation](https://github.com/patricksardinha/TailwindWPF/wiki) - [Examples](https://github.com/patricksardinha/TailwindWPF/tree/main/examples) - [Changelog](CHANGELOG.md)
