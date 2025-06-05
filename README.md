@@ -8,7 +8,7 @@ A modern WPF library that brings the power and simplicity of Tailwind CSS to you
 
 ## Introduction
 
-TailwindWPF allows you to style your WPF controls with familiar Tailwind CSS-inspired syntax. No more repetitive XAML declarations - just use utility classes in a `tw:Tw.Class` attribute!
+TailwindWPF allows you to style your WPF controls with familiar Tailwind CSS-inspired syntax. No more repetitive XAML declarations - just use utility classes in a `tw:Tw.Class` or `tw:Tw.ResponsiveClass` attribute!
 
 ### Before
 ```xml
@@ -279,6 +279,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 
-** Don't forget to star the repo if TailwindWPF helps you! **
+**Don't forget to star the repo if TailwindWPF helps you!**
 
-[Documentation](https://github.com/patricksardinha/TailwindWPF/wiki) - [Examples](https://github.com/patricksardinha/TailwindWPF/tree/main/examples) - [Changelog](CHANGELOG.md)
+[Documentation](https://github.com/patricksardinha/TailwindWPF/wiki) -
+[Examples](https://github.com/patricksardinha/TailwindWPF/tree/main/examples)
+[Changelog](CHANGELOG.md)
