@@ -33,6 +33,11 @@ namespace TailwindWPF.Styling
             {
                 SetupInteractions(d, classes);
             }
+
+            if (classes.HasResponsiveClasses)
+            {
+                SetupResponsive(d, classes);
+            }
         }
 
         private static ClassCollection ParseClasses(string classString)
@@ -71,7 +76,14 @@ namespace TailwindWPF.Styling
                             result.ResponsiveClasses[state].Add(className);
                             break;
                         default:
-                            result.BaseClasses.Add(cls);
+                            if (IsResponsiveInteractive(cls))
+                            {
+                                ParseResponsiveInteractive(cls, result);
+                            }
+                            else
+                            {
+                                result.BaseClasses.Add(cls); // Si on ne reconnaît pas, on ajoute tel quel
+                            }
                             break;
                     }
                 }
@@ -82,6 +94,41 @@ namespace TailwindWPF.Styling
             }
 
             return result;
+        }
+
+        private static bool IsResponsiveInteractive(string cls)
+        {
+            var parts = cls.Split(':');
+            return parts.Length >= 3 &&
+                   (parts[0] == "sm" || parts[0] == "md" || parts[0] == "lg" || parts[0] == "xl" || parts[0] == "2xl") &&
+                   (parts[1] == "hover" || parts[1] == "focus" || parts[1] == "active" || parts[1] == "disabled");
+        }
+
+        private static void ParseResponsiveInteractive(string cls, ClassCollection result)
+        {
+            var parts = cls.Split(':', 3);
+            if (parts.Length == 3)
+            {
+                var breakpoint = parts[0];
+                var state = parts[1];
+                var className = parts[2];
+
+                if (!result.ResponsiveInteractiveClasses.ContainsKey(breakpoint))
+                {
+                    result.ResponsiveInteractiveClasses[breakpoint] = new Dictionary<string, List<string>>
+                    {
+                        ["hover"] = new(),
+                        ["focus"] = new(),
+                        ["active"] = new(),
+                        ["disabled"] = new()
+                    };
+                }
+
+                if (result.ResponsiveInteractiveClasses[breakpoint].ContainsKey(state))
+                {
+                    result.ResponsiveInteractiveClasses[breakpoint][state].Add(className);
+                }
+            }
         }
 
         private static void ApplyClasses(DependencyObject d, List<string> classes)
@@ -101,7 +148,68 @@ namespace TailwindWPF.Styling
 
             var stateManager = new ElementStateManager(element, classes);
 
-            element.SetValue(FrameworkElement.TagProperty, stateManager);
+            var currentTag = element.GetValue(FrameworkElement.TagProperty);
+            element.SetValue(FrameworkElement.TagProperty, new { StateManager = stateManager, OriginalTag = currentTag });
+        }
+
+        private static void SetupResponsive(DependencyObject d, ClassCollection classes)
+        {
+            if (d is not FrameworkElement element) return;
+
+            element.SizeChanged += (s, args) => ApplyResponsiveClasses(element, classes);
+            element.Loaded += (s, args) => ApplyResponsiveClasses(element, classes);
+
+            if (element.ActualWidth > 0)
+            {
+                ApplyResponsiveClasses(element, classes);
+            }
+        }
+
+        private static void ApplyResponsiveClasses(FrameworkElement element, ClassCollection classes)
+        {
+            var parentWindow = Window.GetWindow(element);
+            if (parentWindow == null) return;
+
+            var windowWidth = parentWindow.ActualWidth;
+            var currentBreakpoint = GetCurrentBreakpoint(windowWidth);
+
+            foreach (var (breakpoint, classList) in classes.ResponsiveClasses)
+            {
+                bool shouldApply = ShouldApplyBreakpoint(breakpoint, windowWidth);
+
+                if (shouldApply)
+                {
+                    ApplyClasses(element, classList);
+                }
+            }
+        }
+
+        private static string GetCurrentBreakpoint(double width)
+        {
+            if (width >= 1536) return "2xl";
+            if (width >= 1280) return "xl";
+            if (width >= 1024) return "lg";
+            if (width >= 768) return "md";
+            if (width >= 640) return "sm";
+            return "base";
+        }
+
+        private static bool ShouldApplyBreakpoint(string breakpoint, double width)
+        {
+            var breakpoints = new Dictionary<string, double>
+            {
+                ["sm"] = 640,
+                ["md"] = 768,
+                ["lg"] = 1024,
+                ["xl"] = 1280,
+                ["2xl"] = 1536
+            };
+
+            if (breakpoints.TryGetValue(breakpoint, out var minWidth))
+            {
+                return width >= minWidth;
+            }
+            return false;
         }
 
         private class ClassCollection
@@ -120,6 +228,8 @@ namespace TailwindWPF.Styling
                 ["2xl"] = new()
             };
 
+            public Dictionary<string, Dictionary<string, List<string>>> ResponsiveInteractiveClasses { get; } = new();
+
             public bool HasInteractiveClasses =>
                 HoverClasses.Count > 0 ||
                 FocusClasses.Count > 0 ||
@@ -127,7 +237,8 @@ namespace TailwindWPF.Styling
                 DisabledClasses.Count > 0;
 
             public bool HasResponsiveClasses =>
-                ResponsiveClasses.Values.Any(list => list.Count > 0);
+                 ResponsiveClasses.Values.Any(list => list.Count > 0) ||
+                 ResponsiveInteractiveClasses.Count > 0;
         }
 
         private class ElementStateManager

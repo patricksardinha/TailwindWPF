@@ -761,10 +761,10 @@
                         <StackPanel>
                             <TextBlock Text="Responsive Colors" tw:Tw.Class="text-lg font-bold mb-4"/>
                             <StackPanel tw:Tw.Class="gap-4">
-                                <Border tw:ResponsiveTw.ResponsiveClass="bg-red-500 sm:bg-blue-500 md:bg-green-500 lg:bg-purple-500 text-white p-4 rounded text-center">
+                                <Border tw:Tw.Class="bg-red-500 sm:bg-blue-500 md:bg-green-500 lg:bg-purple-500 text-white p-4 rounded text-center">
                                     <TextBlock Text="Background color changes with breakpoints"/>
                                 </Border>
-                                <TextBlock tw:ResponsiveTw.ResponsiveClass="text-red-600 sm:text-blue-600 md:text-green-600 lg:text-purple-600 text-center font-semibold">
+                                <TextBlock tw:Tw.Class="text-red-600 sm:text-blue-600 md:text-green-600 lg:text-purple-600 text-center font-semibold">
                                     <Run Text="Text color also changes with screen size"/>
                                 </TextBlock>
                             </StackPanel>
