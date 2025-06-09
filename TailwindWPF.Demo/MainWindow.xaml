@@ -491,6 +491,155 @@
             </ScrollViewer>
         </TabItem>
 
+        <!-- Interactions Demo Tab -->
+        <TabItem Header="Interactions Demo" tw:Tw.Class="p-4">
+            <ScrollViewer>
+                <StackPanel tw:Tw.Class="p-4 gap-6">
+                    <TextBlock Text="Interactive States Demo" tw:Tw.Class="text-2xl font-bold"/>
+                    <TextBlock Text="Hover, focus, and click on elements to see state changes!" tw:Tw.Class="text-gray-600"/>
+
+                    <!-- Hover Effects -->
+                    <Border tw:Tw.Class="border border-gray-200 rounded-lg p-4">
+                        <StackPanel tw:Tw.Class="gap-4">
+                            <TextBlock Text="Hover Effects" tw:Tw.Class="text-lg font-semibold"/>
+
+                            <StackPanel tw:Tw.Class="gap-3">
+                                <TextBlock Text="Hover Background Changes:" tw:Tw.Class="font-medium"/>
+                                <StackPanel tw:Tw.Class="flex flex-row gap-3 flex-wrap">
+                                    <Button Content="Hover me!" 
+                                            tw:Tw.Class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors duration-200"/>
+                                    <Button Content="Green hover" 
+                                            tw:Tw.Class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors"/>
+                                    <Button Content="Red hover" 
+                                            tw:Tw.Class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors"/>
+                                </StackPanel>
+
+                                <TextBlock Text="Hover Scale Effects:" tw:Tw.Class="font-medium mt-4"/>
+                                <StackPanel tw:Tw.Class="flex flex-row gap-3 flex-wrap">
+                                    <Button Content="Scale on hover" 
+                                            tw:Tw.Class="bg-purple-500 hover:bg-purple-600 hover:scale-105 text-white px-4 py-2 rounded transition-all duration-200"/>
+                                    <Button Content="Lift effect" 
+                                            tw:Tw.Class="bg-orange-500 hover:bg-orange-600 hover:-translate-y-1 text-white px-4 py-2 rounded shadow-md transition-all duration-200"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Focus Effects -->
+                    <Border tw:Tw.Class="border border-gray-200 rounded-lg p-4">
+                        <StackPanel tw:Tw.Class="gap-4">
+                            <TextBlock Text="Focus Effects" tw:Tw.Class="text-lg font-semibold"/>
+                            <TextBlock Text="Tab through or click on these elements to see focus effects:" tw:Tw.Class="text-sm text-gray-600"/>
+
+                            <StackPanel tw:Tw.Class="gap-3">
+                                <TextBlock Text="Focus Rings:" tw:Tw.Class="font-medium"/>
+                                <StackPanel tw:Tw.Class="flex flex-row gap-3 flex-wrap">
+                                    <Button Content="Blue focus ring" 
+                                            tw:Tw.Class="bg-gray-200 focus:ring-2 focus:ring-blue-300 text-gray-800 px-4 py-2 rounded"/>
+                                    <Button Content="Green focus ring" 
+                                            tw:Tw.Class="bg-gray-200 focus:ring-2 focus:ring-green-300 text-gray-800 px-4 py-2 rounded"/>
+                                    <Button Content="Red focus ring" 
+                                            tw:Tw.Class="bg-gray-200 focus:ring-2 focus:ring-red-300 text-gray-800 px-4 py-2 rounded"/>
+                                </StackPanel>
+
+                                <TextBlock Text="Text Inputs with Focus:" tw:Tw.Class="font-medium mt-4"/>
+                                <StackPanel tw:Tw.Class="gap-2">
+                                    <TextBox tw:Tw.Class="border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 p-2 rounded"
+                                             Text="Focus me for blue ring"/>
+                                    <TextBox tw:Tw.Class="border border-gray-300 focus:ring-2 focus:ring-purple-300 focus:border-purple-500 p-2 rounded"
+                                             Text="Focus me for purple ring"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Active/Press Effects -->
+                    <Border tw:Tw.Class="border border-gray-200 rounded-lg p-4">
+                        <StackPanel tw:Tw.Class="gap-4">
+                            <TextBlock Text="Active/Press Effects" tw:Tw.Class="text-lg font-semibold"/>
+                            <TextBlock Text="Click and hold to see active states:" tw:Tw.Class="text-sm text-gray-600"/>
+
+                            <StackPanel tw:Tw.Class="gap-3">
+                                <StackPanel tw:Tw.Class="flex flex-row gap-3 flex-wrap">
+                                    <Button Content="Press me!" 
+                                            tw:Tw.Class="bg-blue-500 hover:bg-blue-600 active:scale-95 active:bg-blue-700 text-white px-4 py-2 rounded transition-all duration-150"/>
+                                    <Button Content="Squish effect" 
+                                            tw:Tw.Class="bg-green-500 hover:bg-green-600 active:scale-90 text-white px-4 py-2 rounded transition-all duration-100"/>
+                                    <Button Content="Push down" 
+                                            tw:Tw.Class="bg-purple-500 hover:bg-purple-600 active:translate-y-1 text-white px-4 py-2 rounded shadow-lg transition-all duration-150"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Disabled States -->
+                    <Border tw:Tw.Class="border border-gray-200 rounded-lg p-4">
+                        <StackPanel tw:Tw.Class="gap-4">
+                            <TextBlock Text="Disabled States" tw:Tw.Class="text-lg font-semibold"/>
+
+                            <StackPanel tw:Tw.Class="gap-3">
+                                <StackPanel tw:Tw.Class="flex flex-row gap-3 flex-wrap">
+                                    <Button Content="Enabled button" 
+                                            tw:Tw.Class="bg-blue-500 hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white px-4 py-2 rounded"/>
+                                    <Button Content="Disabled button" 
+                                            IsEnabled="False"
+                                            tw:Tw.Class="bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white px-4 py-2 rounded"/>
+                                    <Button Content="Grayed out" 
+                                            IsEnabled="False"
+                                            tw:Tw.Class="bg-green-500 disabled:opacity-25 disabled:cursor-not-allowed text-white px-4 py-2 rounded"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Combined States -->
+                    <Border tw:Tw.Class="border border-gray-200 rounded-lg p-4">
+                        <StackPanel tw:Tw.Class="gap-4">
+                            <TextBlock Text="Combined Interactive States" tw:Tw.Class="text-lg font-semibold"/>
+                            <TextBlock Text="Elements with multiple interactive states combined:" tw:Tw.Class="text-sm text-gray-600"/>
+
+                            <StackPanel tw:Tw.Class="gap-3">
+                                <StackPanel tw:Tw.Class="flex flex-row gap-3 flex-wrap">
+                                    <!-- Bouton with states -->
+                                    <Button Content="Full interactive" 
+                                            tw:Tw.Class="bg-indigo-500 hover:bg-indigo-600 hover:scale-105 focus:ring-2 focus:ring-indigo-300 active:scale-95 active:bg-indigo-700 disabled:opacity-50 text-white px-6 py-3 rounded-lg shadow-md transition-all duration-200"/>
+
+                                    <!-- Card -->
+                                    <Border tw:Tw.Class="bg-white hover:bg-gray-50 hover:-translate-y-1 border border-gray-200 hover:shadow-lg focus:ring-2 focus:ring-blue-300 p-4 rounded-lg cursor-pointer transition-all duration-200">
+                                        <StackPanel>
+                                            <TextBlock Text="Interactive Card" tw:Tw.Class="font-semibold"/>
+                                            <TextBlock Text="Hover and focus me!" tw:Tw.Class="text-sm text-gray-600"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Usage Guide -->
+                    <Border tw:Tw.Class="border border-blue-200 rounded-lg p-4 bg-blue-50">
+                        <StackPanel tw:Tw.Class="gap-3">
+                            <TextBlock Text="How to Use Interactive States" tw:Tw.Class="text-lg font-semibold"/>
+                            <StackPanel tw:Tw.Class="gap-2">
+                                <TextBlock tw:Tw.Class="text-sm">
+                                    <Run Text=" Use "/>
+                                    <Run Text="tw:Tw.Class" tw:Tw.Class="font-mono bg-blue-200 px-1 rounded"/>
+                                    <Run Text=" for all elements (interactive + responsive combined!)"/>
+                                </TextBlock>
+                                <TextBlock Text="• Combine base classes with state prefixes:" tw:Tw.Class="text-sm"/>
+                                <TextBlock tw:Tw.Class="text-sm font-mono bg-blue-200 p-2 rounded ml-4">
+                                    <Run Text='bg-blue-500 hover:bg-blue-600 focus:ring-2 active:scale-95'/>
+                                </TextBlock>
+                                <TextBlock Text="• Available states: hover:, focus:, active:, disabled:" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• Works with responsive too: sm:hover:bg-red-500" tw:Tw.Class="text-sm"/>
+                                <TextBlock Text="• Add transition-* classes for smooth animations" tw:Tw.Class="text-sm"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
         <!-- Responsive Demo Tab -->
         <TabItem Header="Responsive Demo" tw:Tw.Class="p-4">
             <ScrollViewer>

@@ -282,5 +282,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Don't forget to star the repo if TailwindWPF helps you!**
 
 [Documentation](https://github.com/patricksardinha/TailwindWPF/wiki) -
-[Examples](https://github.com/patricksardinha/TailwindWPF/tree/main/examples)
+[Examples](https://github.com/patricksardinha/TailwindWPF/tree/main/examples) -
 [Changelog](CHANGELOG.md)

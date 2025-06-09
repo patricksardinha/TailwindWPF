@@ -26,6 +26,7 @@ namespace TailwindWPF.Styling
             new DisplayPositionStyles(),
             new EffectsStyles(),
             new TransformStyles(),
+            new InteractionStyles(),
         };
 
         static TailwindMap()
