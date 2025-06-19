@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Xml;
-using System.Xml.Schema;
+using System.Threading.Tasks;
 using TailwindWPF.Styling;
 
-namespace TailwindWPF.XSD
+namespace TailwindWPF.Tools
 {
     public static class XsdGenerator
     {
